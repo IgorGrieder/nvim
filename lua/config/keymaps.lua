@@ -5,7 +5,10 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 -- Keymaps
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-y>", "gg<S-v>G")
+
+keymap.set("n", "<S-d>", "<C-d>zz")
+keymap.set("n", "<S-u>", "<C-u>zz")
 
 -- For escaping insert mode
 keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
