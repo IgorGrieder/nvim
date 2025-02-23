@@ -15,10 +15,6 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = "java",
     config = function()
-      local on_attach = function(client, bufnr)
-        require("plugins.configs.lspconfig").on_attach(client, bufnr)
-      end
-
       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
       -- calcula o diretório de trabalho
       local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
@@ -52,7 +48,6 @@ return {
           "-data",
           workspace_dir,
         },
-        on_attach = on_attach,
         root_dir = vim.fs.dirname(
           vim.fs.find({ ".gradlew", ".git", "mvnw", "pom.xml", "build.gradle" }, { upward = true })[1]
         ),
