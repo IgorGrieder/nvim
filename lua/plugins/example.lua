@@ -131,6 +131,7 @@ return {
         "query",
         "regex",
         "tsx",
+        "java",
         "typescript",
         "vim",
         "yaml",
