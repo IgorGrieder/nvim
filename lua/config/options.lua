@@ -4,3 +4,4 @@
 
 vim.o.scrolloff = 10
 vim.o.relativenumber = true
+vim.opt.colorcolumn = "100"
