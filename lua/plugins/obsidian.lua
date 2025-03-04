@@ -21,7 +21,7 @@ return {
     workspaces = {
       {
         name = "Estudos",
-        path = "/Users/igorgriedermelo/Library/CloudStorage/GoogleDrive-igorgrieder@gmail.com/Meu Drive/Obsidian",
+        path = "/Users/igorgriedermelo/Library/CloudStorage/GoogleDrive-igorgrieder@gmail.com/Meu Drive/Obsidian/Estudos/",
       },
     },
     -- see below for full list of options 👇

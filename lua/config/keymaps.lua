@@ -25,3 +25,6 @@ keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 -- Move selected linesssssss
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Obsidian nvim
+vim.keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
