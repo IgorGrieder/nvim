@@ -1,9 +1,10 @@
 function ColorMyPencils(color)
-  color = color or "rose-pine-moon"
+  color = color or "kanagawa"
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 end
 
 return {
@@ -11,7 +12,31 @@ return {
   {
     "erikbackman/brightburn.vim",
   },
-
+  {
+    "rebelot/kanagawa.nvim",
+    compile = false, -- enable compiling the colorscheme
+    undercurl = true, -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = false, -- do not set background color
+    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+    terminalColors = true, -- define vim.g.terminal_color_{0,17}
+    colors = { -- add/modify theme and palette colors
+      palette = {},
+      theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    },
+    overrides = function(colors) -- add/modify highlights
+      return {}
+    end,
+    theme = "lotus", -- Load "wave" theme
+    background = { -- map the value of 'background' option to a theme
+      dark = "lotus", -- try "dragon" !
+      light = "lotus",
+    },
+  },
   {
     "folke/tokyonight.nvim",
     lazy = false,
