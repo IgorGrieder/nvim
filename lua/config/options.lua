@@ -5,4 +5,4 @@
 vim.o.scrolloff = 10
 vim.o.relativenumber = true
 vim.opt.colorcolumn = "80"
-vim.opt.textwidth = 80
+--[[ vim.opt.textwidth = 80 ]]
