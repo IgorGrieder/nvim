@@ -28,3 +28,4 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Obsidian nvim
 vim.keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
+vim.keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })

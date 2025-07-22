@@ -1,12 +1,16 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
     opts = {
       servers = {
         pyright = {
           settings = {
             python = {
-              pythonPath = "~/ml-venv/bin/python", -- Direct path to Python interpreter
+              pythonPath = "~/ml-venv/bin/python",
               analysis = {
                 typeCheckingMode = "basic",
                 autoSearchPaths = true,
@@ -17,6 +21,8 @@ return {
             },
           },
         },
+        tsserver = {},
+        eslint = {},
       },
     },
   },
