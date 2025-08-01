@@ -26,6 +26,11 @@ keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Save with Command + S in normal, insert, and visual modes
+keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+keymap.set("v", "<D-s>", "<Esc>:w<CR>gv", { noremap = true, silent = true })
+
 -- Obsidian nvim
-vim.keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
-vim.keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })
+keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
+keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })
