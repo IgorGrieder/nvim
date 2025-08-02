@@ -27,9 +27,7 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Save with Command + S in normal, insert, and visual modes
-keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
-keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
-keymap.set("v", "<D-s>", "<Esc>:w<CR>gv", { noremap = true, silent = true })
+keymap.set("i", "<Esc>:w<CR>a", "<Esc>:w<CR>a", { noremap = true, silent = true })
 
 -- Obsidian nvim
 keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
