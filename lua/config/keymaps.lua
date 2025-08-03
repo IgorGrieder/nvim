@@ -32,3 +32,12 @@ keymap.set("i", "<Esc>:w<CR>a", "<Esc>:w<CR>a", { noremap = true, silent = true 
 -- Obsidian nvim
 keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
 keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })
+
+-- Jump back and forward in jumplist
+keymap.set("n", "<leader>9", "<C-o>", { desc = "Go Back in Jump List" })
+keymap.set("n", "<leader>0", "<C-i>", { desc = "Go Forward in Jump List" })
+
+-- Select all occurrences of current word (Visual Multi)
+keymap.set("n", "<leader>rw", function()
+  vim.cmd("VMSearch " .. vim.fn.expand("<cword>"))
+end, { desc = "Select All Occurrences of Word" })
