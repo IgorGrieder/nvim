@@ -10,6 +10,9 @@ keymap.set("n", "<C-y>", "gg<S-v>G")
 keymap.set("n", "<S-d>", "<C-d>zz")
 keymap.set("n", "<S-u>", "<C-u>zz")
 
+keymap.set("v", "<S-d>", "<C-d>zz")
+keymap.set("v", "<S-u>", "<C-u>zz")
+
 -- For escaping insert mode
 keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 
@@ -36,6 +39,3 @@ keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })
 -- Jump back and forward in jumplist
 keymap.set("n", "<leader>9", "<C-o>", { desc = "Go Back in Jump List" })
 keymap.set("n", "<leader>0", "<C-i>", { desc = "Go Forward in Jump List" })
-
--- Select all occurrences of current word (Visual Multi)
-keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]], { desc = "Substitute current word" })
