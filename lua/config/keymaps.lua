@@ -22,15 +22,12 @@ keymap.set("n", "-", "$", opts)
 keymap.set("n", "d-", "d$") -- `d$` deletes from the cursor to the end of the line
 keymap.set("v", "-", "$", opts) -- Added visual mode mapping
 
--- Rename words in normal mode
-keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
 -- Move selected linesssssss
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Save with Command + S in normal, insert, and visual modes
-keymap.set("i", "<Esc>:w<CR>a", "<Esc>:w<CR>a", { noremap = true, silent = true })
+keymap.set("n", "<Esc>:w<CR>a", "<Esc>:w<CR>a", { noremap = true, silent = true })
 
 -- Obsidian nvim
 keymap.set("n", "<leader>rl", "<cmd>ObsidianLink<CR>", { desc = "Run ObsidianLink" })
