@@ -1,6 +1,6 @@
 function ColorMyPencils(color)
   --[[ color = color or "kanagawa" ]]
-  -- [[color = color or "tokyonight"]]
+  -- color = color or "tokyonight"
   color = "github-nvim-theme"
   --[[ color = color or "rose-pine" ]]
   vim.cmd.colorscheme(color)
@@ -85,7 +85,7 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-        transparent = true, -- Enable this to disable setting the background color
+        transparent = false, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
         styles = {
           -- Style to be applied to different syntax groups
@@ -109,7 +109,7 @@ return {
         -- ...
       })
 
-      vim.cmd("colorscheme github_dark")
+      -- vim.cmd("colorscheme github_dark")
     end,
   },
   -- {

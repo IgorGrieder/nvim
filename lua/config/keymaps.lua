@@ -36,3 +36,6 @@ keymap.set("n", "<Leader>r", ":w<CR>", { desc = "Save file" })
 -- Jump back and forward in jumplist
 keymap.set("n", "<leader>9", "<C-o>", { desc = "Go Back in Jump List" })
 keymap.set("n", "<leader>0", "<C-i>", { desc = "Go Forward in Jump List" })
+
+-- go to impl
+keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
