@@ -17,11 +17,20 @@ return {
 
     -- see below for full list of optional dependencies 👇
   },
+  templates = {
+    folder = "/Users/igorgriedermelo/Programming/Zettelkasten/Templates/",
+    date_format = "%Y-%m-%d-%a",
+    time_format = "%H:%M",
+  },
   opts = {
     workspaces = {
       {
         name = "Estudos",
         path = "/Users/igorgriedermelo/Library/CloudStorage/GoogleDrive-igorgrieder@gmail.com/Meu Drive/Obsidian/Estudos/",
+      },
+      {
+        name = "Zettelkasten",
+        path = "/Users/igorgriedermelo/Programming/Zettelkasten",
       },
     },
     -- see below for full list of options 👇
