@@ -17,11 +17,7 @@ return {
 
     -- see below for full list of optional dependencies 👇
   },
-  templates = {
-    folder = "/Users/igorgriedermelo/Programming/Zettelkasten/Templates/",
-    date_format = "%Y-%m-%d-%a",
-    time_format = "%H:%M",
-  },
+
   opts = {
     workspaces = {
       {
@@ -34,5 +30,10 @@ return {
       },
     },
     -- see below for full list of options 👇
+    templates = {
+      folder = "/Users/igorgriedermelo/Programming/Zettelkasten",
+      date_format = "%Y-%m-%d-%a",
+      time_format = "%H:%M",
+    },
   },
 }
