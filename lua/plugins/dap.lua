@@ -30,8 +30,9 @@ return {
       vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
       vim.keymap.set("n", "<Leader>dc", dap.continue, { desc = "Continue" })
       vim.keymap.set("n", "<Leader>di", dap.step_into, { desc = "DAP Step Into" })
-      vim.keymap.set("n", "<Leader>dn", dap.run_to_cursor, { desc = "DAP Run to cursor" })
+      vim.keymap.set("n", "<Leader>do", dap.run_to_cursor, { desc = "DAP Run to cursor" })
       vim.keymap.set("n", "<Leader>dr", ":lua require('dapui').open({reset = true})<CR>", { desc = "Start DAP" })
+      vim.keymap.set("n", "<Leader>dn", dap.step_over, { desc = "DAP Step Over" })
 
       vim.fn.sign_define(
         "DapBreakpoint",
