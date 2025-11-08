@@ -5,6 +5,7 @@ return {
       formatters_by_ft = {
         typescript = { "prettier" },
         javascript = { "prettier" },
+        markdown = { "prettier" },
         lua = { "stylua" },
       },
     },
