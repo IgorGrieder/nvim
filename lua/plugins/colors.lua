@@ -1,13 +1,15 @@
 function ColorMyPencils(color)
   --[[ color = color or "kanagawa" ]]
-  color = color or "tokyonight"
+  --[[ color = color or "tokyonight" ]]
   -- color = "github-nvim-theme"
-  --[[ color = color or "rose-pine" ]]
+  color = color or "rose-pine"
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
   vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+
+  vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
 end
 
 return {
@@ -112,18 +114,25 @@ return {
       -- vim.cmd("colorscheme github_dark")
     end,
   },
-  -- {
-  --   "rose-pine/neovim",
-  --   name = "rose-pine",
-  --   config = function()
-  --     require("rose-pine").setup({
-  --       disable_background = true,
-  --       styles = {
-  --         italic = false,
-  --       },
-  --     })
-  --
-  --     ColorMyPencils()
-  --   end,
-  -- },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        transparent = false, -- Enable this to disable setting the background color
+        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+        styles = {
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          comments = { italic = false },
+          keywords = { italic = false },
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
+      })
+
+      ColorMyPencils()
+    end,
+  },
 }
