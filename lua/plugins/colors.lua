@@ -41,7 +41,7 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        style = "night",
+        style = "moon",
         transparent = false,
         styles = {
           comments = { italic = false },
@@ -73,8 +73,12 @@ return {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
     config = function()
-      require("github-theme").setup({})
+      require("github-theme").setup({
+        transparent_background = false,
+        terminal_colors = false,
+      })
       -- To use this theme, move ColorMyPencils("github_dark") here
+      -- ColorMyPencils("github_dark_default")
     end,
   },
 
