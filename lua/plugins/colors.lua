@@ -52,7 +52,7 @@ return {
       })
 
       -- ACTIVATE THE THEME HERE
-      ColorMyPencils("tokyonight")
+      -- ColorMyPencils("tokyonight")
     end,
   },
 
@@ -87,7 +87,7 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
-        flavour = "mocha",
+        flavour = "macchiato",
         transparent_background = false,
         integrations = {
           cmp = true,
@@ -99,6 +99,19 @@ return {
       -- If you want to switch to catppuccin, uncomment the line below
       -- and comment out the one in tokyonight
       -- ColorMyPencils("catppuccin")
+    end,
+  },
+
+  {
+    "ydkulks/cursor-dark.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cursor-dark").setup({
+        style = "dark", -- or "dark"
+        transparent = false,
+      })
+      vim.cmd.colorscheme("cursor-dark")
     end,
   },
 }
