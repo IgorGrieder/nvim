@@ -5,6 +5,12 @@ return {
       "rcarriga/nvim-dap-ui",
       "leoluz/nvim-dap-go",
       "nvim-neotest/nvim-nio",
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          ensure_installed = { "js-debug-adapter" },
+        },
+      },
     },
 
     config = function()
@@ -12,6 +18,58 @@ return {
 
       require("dapui").setup()
       require("dap-go").setup()
+
+      -- Debug JavaScript and TypeScript with Microsoft's Node.js debug adapter.
+      -- Mason installs the adapter at this path when Neovim starts.
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {
+            LazyVim.get_pkg_path("js-debug-adapter", "/js-debug/src/dapDebugServer.js"),
+            "${port}",
+          },
+        },
+      }
+
+      local node_configurations = {
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch current TypeScript (Node)",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+          runtimeArgs = { "--experimental-strip-types" },
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
+        },
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch compiled JavaScript",
+          program = function()
+            return vim.fn.input("Path to compiled JavaScript: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
+        },
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "Attach to Node process",
+          processId = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
+        },
+      }
+
+      for _, filetype in ipairs({ "typescript", "typescriptreact", "javascript", "javascriptreact" }) do
+        dap.configurations[filetype] = node_configurations
+      end
 
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
