@@ -44,6 +44,9 @@ return {
           -- Respect TypeScript's NodeNext imports (for example, `./send.js`
           -- resolving to `send.ts`) using the project's local tsx dependency.
           runtimeArgs = { "--import", "tsx" },
+          args = function()
+            return vim.split(vim.fn.input("Program arguments: "), "%s+", { trimempty = true })
+          end,
           sourceMaps = true,
           skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
         },
