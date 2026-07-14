@@ -38,10 +38,12 @@ return {
         {
           type = "pwa-node",
           request = "launch",
-          name = "Launch current TypeScript (Node)",
+          name = "Launch current TypeScript (tsx)",
           program = "${file}",
           cwd = "${workspaceFolder}",
-          runtimeArgs = { "--experimental-strip-types" },
+          -- Respect TypeScript's NodeNext imports (for example, `./send.js`
+          -- resolving to `send.ts`) using the project's local tsx dependency.
+          runtimeArgs = { "--import", "tsx" },
           sourceMaps = true,
           skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
         },
