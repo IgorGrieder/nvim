@@ -8,4 +8,5 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 vim.opt.fillchars = { eob = " " }
 vim.opt.colorcolumn = "80"
+vim.opt.autoread = true
 --[[ vim.opt.textwidth = 80 ]]

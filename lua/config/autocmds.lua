@@ -21,3 +21,39 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:append("t") -- Auto-wrap using textwidth
   end,
 })
+
+local external_reload_group = vim.api.nvim_create_augroup("ExternalFileReload", { clear = true })
+
+local function check_external_changes()
+  if vim.fn.mode() == "c" then
+    return
+  end
+
+  vim.cmd("silent! checktime")
+end
+
+vim.api.nvim_create_autocmd({
+  "FocusGained",
+  "BufEnter",
+  "CursorHold",
+  "CursorHoldI",
+  "TermClose",
+  "TermLeave",
+}, {
+  group = external_reload_group,
+  callback = check_external_changes,
+  desc = "Reload buffers changed outside Neovim",
+})
+
+local external_reload_timer = vim.uv.new_timer()
+if external_reload_timer then
+  external_reload_timer:start(1000, 1000, vim.schedule_wrap(check_external_changes))
+
+  vim.api.nvim_create_autocmd("VimLeavePre", {
+    group = external_reload_group,
+    callback = function()
+      external_reload_timer:stop()
+      external_reload_timer:close()
+    end,
+  })
+end
